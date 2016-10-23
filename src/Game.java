@@ -18,6 +18,10 @@ public class Game {
 		addPlayer();
 	}
 
+	public void processClick(int x, int y){
+		System.out.println("X: " + x + ", Y: " + y);
+	}
+
 	public void addPlayer(){
 		if(playerNumber > 4)
 			return;

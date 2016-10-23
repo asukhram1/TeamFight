@@ -1,17 +1,20 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.lang.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class window extends JFrame {
+public class window extends JFrame implements MouseListener{
 	static JLabel screen;
 	static Game game;
-	
+
 	public window(Game game) {
 		super("Team Fight!");
 		this.game = game;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		screen = new JLabel();
+		screen.addMouseListener(this);
 		this.getContentPane().setBackground(Color.pink);
 		this.add(screen);
 		this.setVisible(true);
@@ -37,6 +40,21 @@ public class window extends JFrame {
 		}
 		return out;
 	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		game.processClick((int)((e.getX()/(float)this.getWidth())*(float)game.getSpacesX()),(int)((e.getY()/(float)this.getHeight())*(float)game.getSpacesY()));
+	}
+
 }
 
 
