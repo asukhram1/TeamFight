@@ -1,17 +1,29 @@
 import java.awt.*;
 
 public class Person {
-	double health;
-	int level;
-	int xPos;
-	int yPos;
-	Color owner;
+	private double health;
+	private int level;
+	private int xPos;
+	private int yPos;
+	private Color owner;
 	
 	public Person() {
 		this.health = 100.0;
 		this.level = 0;
-		this.xPos = (int)(Math.random()*100);
-		this.yPos = (int)(Math.random()*100);
+		this.xPos = (int)(Math.random()*(float)Game.getSpacesX());
+		this.yPos = (int)(Math.random()*(float)Game.getSpacesY());
 		this.owner = Color.white;
+	}
+
+	public Color getOwner(){
+		return owner;
+	}
+
+	public int getxPos(){
+		return xPos;
+	}
+
+	public int getyPos(){
+		return yPos;
 	}
 }

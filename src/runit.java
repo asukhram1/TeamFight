@@ -8,7 +8,7 @@ public class runit {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				window test = new window();
+				window test = new window(new Game());
 				test.runGame();
 				ActionListener al = new ActionListener(){
 					public void actionPerformed(ActionEvent e){

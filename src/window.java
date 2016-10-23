@@ -1,4 +1,3 @@
-import java.util.*;
 import java.lang.*;
 import javax.swing.*;
 import java.awt.*;
@@ -6,9 +5,11 @@ import java.awt.image.BufferedImage;
 
 public class window extends JFrame {
 	static JLabel screen;
+	static Game game;
 	
-	public window() {
+	public window(Game game) {
 		super("Team Fight!");
+		this.game = game;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		screen = new JLabel();
 		this.getContentPane().setBackground(Color.pink);
@@ -29,8 +30,11 @@ public class window extends JFrame {
 		Graphics g = out.getGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		g.setColor(Color.green);
-		g.fillOval((int)(Math.random()*(this.getWidth()-88)), (int)(Math.random()*(this.getHeight()-88)), 88, 88);
+		for(int i = 0; i < game.getNumPersons(); i++){
+			Person currPer = game.getPerson(i);
+			g.setColor(currPer.getOwner());
+			g.drawOval((int)((currPer.getxPos()/(float)game.getSpacesX())*(this.getWidth()-10)),(int)((currPer.getyPos()/(float)game.getSpacesY())*(this.getHeight()-10)),10,10);
+		}
 		return out;
 	}
 }
