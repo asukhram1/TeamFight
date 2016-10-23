@@ -15,15 +15,19 @@ public class Person {
 		this.owner = Color.white;
 	}
 
-	public Color getOwner(){
-		return owner;
-	}
-
 	public int getxPos(){
 		return xPos;
 	}
 
 	public int getyPos(){
 		return yPos;
+	}
+	
+	public void setOwner(Color c){
+		this.owner = c;
+	}
+	
+	public Color getOwner(){
+		return owner;
 	}
 }

@@ -33,7 +33,7 @@ public class window extends JFrame {
 		for(int i = 0; i < game.getNumPersons(); i++){
 			Person currPer = game.getPerson(i);
 			g.setColor(currPer.getOwner());
-			g.drawOval((int)((currPer.getxPos()/(float)game.getSpacesX())*(this.getWidth()-10)),(int)((currPer.getyPos()/(float)game.getSpacesY())*(this.getHeight()-10)),10,10);
+			g.fillOval((int)((currPer.getxPos()/(float)game.getSpacesX())*(this.getWidth()-10)),(int)((currPer.getyPos()/(float)game.getSpacesY())*(this.getHeight()-10)),10,10);
 		}
 		return out;
 	}

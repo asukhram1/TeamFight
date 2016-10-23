@@ -1,10 +1,13 @@
-import java.util.ArrayList;
+import java.awt.*;
+import java.util.*;
 
 public class Game {
 	final static private int spacesX = 100;
 	final static private int spacesY = 100;
 	private ArrayList<Person> allPersons;
 	private ArrayList<Obstacle> allObstacles;
+	int playerNumber = 0;
+	Color[] playerColor = {Color.red , Color.blue , Color.green , Color.yellow};
 
 	public Game (){
 		allPersons = new ArrayList<>();
@@ -12,8 +15,16 @@ public class Game {
 		for(int i = 0; i < 100; i++) {
 			addPerson();
 		}
+		addPlayer();
 	}
 
+	public void addPlayer(){
+		if(playerNumber > 4)
+			return;
+		allPersons.get(playerNumber).setOwner(playerColor[playerNumber]);
+		playerNumber++;
+	}
+	
 	public void addPerson(){
 		allPersons.add(new Person());
 	}
